@@ -2,6 +2,7 @@
 
 * {
   box-sizing: border-box;
+  /* outline: blue 1px solid; */
 }
 
 body {
@@ -28,4 +29,39 @@ h2 {
 
 .form {
   padding: 30px 40px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.form-control label {
+  color: #777;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-control input {
+  border: solid 2px #f0f0f0;
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.form-control input:focus {
+  outline: 0;
+  border-color: #777;
+}
+
+.form-control.success input {
+  /* if our form-control has also class of success */
+  border-color: #2ecc71;
+}
+.form-control.error input {
+  /* if our form-control has also class of success */
+  border-color: #e74c3c;
 }
