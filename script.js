@@ -20,6 +20,15 @@ function showSuccess(input) {
   formControl.className = "form-control success";
 }
 
+//c) Check email is valid
+function isValidEmail(email) {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+}
+
 // adding event listiner on the entire form for the submission
 form.addEventListener("submit", function (e) {
   e.preventDefault();
