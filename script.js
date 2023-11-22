@@ -21,6 +21,7 @@ function showSuccess(input) {
 }
 
 //c) Check email is valid
+
 function isValidEmail(email) {
   return String(email)
     .toLowerCase()
@@ -28,6 +29,11 @@ function isValidEmail(email) {
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 }
+//here is another way to validate an email
+//   function isValidEmail(email) {
+//     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+//      return re.test(String(email).toLowerCase());
+//   }
 
 // adding event listiner on the entire form for the submission
 form.addEventListener("submit", function (e) {
@@ -42,8 +48,8 @@ form.addEventListener("submit", function (e) {
   }
   if (!email.value) {
     showError(email, "Email is required");
-  } else if (email.value.length <= 2) {
-    showError(email, "email should be at least 3 characters long");
+  } else if (!isValidEmail(email.value)) {
+    showError(email, "Please type in a valid email address");
   } else {
     showSuccess(email);
   }
