@@ -47,6 +47,21 @@ function checkRequired(inputArr) {
   });
 }
 
+//check input length
+function checkLength(input, min, max) {
+  if (input.value.length < min) {
+    showError(
+      input,
+      `${getFieldName(input)} should be at least ${min} characters long`
+    );
+  } else if (input.value.length > max) {
+    showError(
+      input,
+      `${getFieldName(input)} should be maximum ${max} characters long`
+    );
+  }
+}
+
 //here we are going to create a function that will capitalise the first letter of the input id and join it with the rest of the id name to return an input id/name for the error message
 function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
@@ -57,6 +72,8 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   checkRequired([username, email, password, password2]);
+  checkLength(username, 3, 15);
+  checkLength(password, 6, 25);
 
   //the code below with a bunch of if statements was not scallable so had to be reformated
   //   if (!username.value) {
